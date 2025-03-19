@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% block title %}Daryn{% endblock %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/12345.css' %}">{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="container">
+            <h1>Ты научишься от нас стать программистом</h1>
+            <hr class="line">
+            <p>
+                Добро пожаловать в уникальный мир, где каждая строка кода - это кисть на холсте,
+                а каждый алгоритм - это симфония виртуального творчества. Наши курсы предлагают не
+                просто обучение, а погружение в изящество программирования.
+            </p>
+        </div>
+        <div class="bottom-section">
+            <div class="bottom-image">
+                <img src="{% static 'main/img/right.png' %}" alt="Example">
+            </div>
+            <div class="bottom-text-1">
+                <div class="bottom-image-1">
+                    <img src="{% static 'main/img/about_3.png' %}" alt="Example">
+                </div>
+                <h2 style="
+                margin-left: 736px;
+                margin-top: -315px;
+            ">Что вы научитесь</h2>
+                <hr class="line-2">
+                <p style="margin-left: 640px;">
+                    На наших курсах вы освоите основы программирования, изучите популярные языки и инструменты,
+                    а также получите практические навыки для построения карьеры в IT.
+                </p>
+                <p style="margin-left: 640px;">
+                    Независимо от вашего уровня подготовки, вы сможете создать свои собственные проекты, которые
+                    помогут вам выделиться среди конкурентов.
+                </p>
+            </div>
+        </div>
+    </main>
+    <hr class="line-1">
+
+    <section class="courses">
+        <h2>Открой мир кода: Курсы для будущих программистов</h2>
+        <div class="course-container">
+            {% for course in random_courses %}
+                <a href="{% url 'kyrs' %}" class="course">
+                    <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                    <h3>{{ course.title }}</h3>
+                    <p>
+                        {{ course.short_description }}
+                    </p>
+                </a>
+            {% endfor %}
+        </div>
+        <a href="{% url 'kyrs' %}" class="btn courses-btn">Список курсов</a>
+    </section>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

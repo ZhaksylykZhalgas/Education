@@ -1,0 +1,250 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }} - Уроки</title>
+    <link rel="stylesheet" href="{% static 'main/css/2084.css' %}">
+</head>
+<body>
+<section class="course-header">
+    <div class="header-content">
+        <h1>{{ course.title }}</h1>
+        <a href="{% url 'more' course.slug %}" class="back-btn"> Назад к курсу</a>
+    </div>
+    <form id="complete-course-form" action="{% url 'complete_course' course.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="complete-btn">Завершить курс</button>
+    </form>
+</section>
+
+<section class="lessons-section">
+    <h2>Лекции</h2>
+    <div class="accordion">
+        {#            {% for lesson in lessons|dictsort:"title" %}#}
+        {% for lesson in lessons %}
+            {% if lesson.lesson_type == 'lecture' %}
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>{{ lesson.title }}</h3>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p><strong>Тема:</strong> {{ lesson.description }}</p>
+                        {% if lesson.video %}
+                            <video controls>
+                                <source src="{{ lesson.video.url }}" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        {% endif %}
+                        {% if lesson.additional_materials %}
+                            <a href="{{ lesson.additional_materials.url }}" download class="material-link">
+                                Скачать дополнительные материалы
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Лекций пока нет.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="lessons-section">
+    <h2>Упражнения</h2>
+    <div class="accordion">
+        {% for lesson in lessons|dictsort:"title" %}
+            {% if lesson.lesson_type == 'exercise' %}
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>{{ lesson.title }}</h3>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>{{ lesson.description }}</p>
+                        {% if lesson.video %}
+                            <video controls>
+                                <source src="{{ lesson.video.url }}" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        {% endif %}
+                        {% if lesson.additional_materials %}
+                            <a href="{{ lesson.additional_materials.url }}" download class="material-link">
+                                Скачать дополнительные материалы
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Упражнений пока нет.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="lessons-section">
+    <h2>Ответы</h2>
+    <div class="accordion">
+        {% for lesson in lessons|dictsort:"title" %}
+            {% if lesson.lesson_type == 'solution' %}
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>{{ lesson.title }}</h3>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>{{ lesson.description }}</p>
+                        {% if lesson.video %}
+                            <video controls>
+                                <source src="{{ lesson.video.url }}" type="video/mp4">
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        {% endif %}
+                        {% if lesson.additional_materials %}
+                            <a href="{{ lesson.additional_materials.url }}" download class="material-link">
+                                Скачать дополнительные материалы
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>Упражнений пока нет.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{#    <section class="lessons-section">#}
+{#        <h2>Ответы</h2>#}
+{#        <div class="accordion">#}
+{#            {% for lesson in lessons|dictsort:"title" %}#}
+{#            {% if lesson.lesson_type == 'solution' %}#}
+{#            <div class="accordion-item">#}
+{#                <button class="accordion-header">#}
+{#                    <h3>{{ lesson.title }}</h3>#}
+{#                    {% if lesson.video %}#}
+{#                        <p>{{ lesson.description }}</p>#}
+{#                    <video controls>#}
+{#                        <source src="{{ lesson.video.url }}" type="video/mp4">#}
+{#                        Ваш браузер не поддерживает видео.#}
+{#                    </video>#}
+{#                    {% endif %}#}
+{#                    <span class="icon">+</span>#}
+{#                </button>#}
+{#                <div class="accordion-content">#}
+{#                    {% if lesson.video %}#}
+{#                    <video controls>#}
+{#                        <source src="{{ lesson.video.url }}" type="video/mp4">#}
+{#                        Ваш браузер не поддерживает видео.#}
+{#                    </video>#}
+{#                    {% endif %}#}
+{#                    {% if lesson.additional_materials %}#}
+{#                    <a href="{{ lesson.additional_materials.url }}" download class="material-link">#}
+{#                        Скачать дополнительные материалы#}
+{#                    </a>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
+{#            {% endif %}#}
+{#            {% empty %}#}
+{#            <p>Ответов пока нет.</p>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </section>#}
+
+<section class="course-rating">
+    <h2>Оцените курс</h2>
+
+    <!-- Display messages -->
+    {% if message %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    <!-- Display current rating if it exists -->
+    {% if existing_rating %}
+        <div class="current-rating-container">
+            <label for="rating">Ваш текущий рейтинг:</label>
+            <div class="current-rating">
+                <span class="rating-text">{{ existing_rating }} звезд{% if existing_rating > 1 %}ы{% endif %}</span>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Rating form -->
+    <form method="post">
+        {% csrf_token %}
+        <label for="score">Ваш новый рейтинг (1-5):</label>
+        <select name="rating" id="score" required>
+            <option value="">Выберите оценку</option>
+            <option value="1">1 - Очень плохо</option>
+            <option value="2">2 - Плохо</option>
+            <option value="3">3 - Средне</option>
+            <option value="4">4 - Хорошо</option>
+            <option value="5">5 - Отлично</option>
+        </select>
+        <button type="submit" class="submit-rating-btn">Отправить</button>
+    </form>
+</section>
+
+
+<script>
+    document.getElementById('complete-course-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = e.target;
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': form.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                alert('Произошла ошибка. Пожалуйста, попробуйте снова.');
+            });
+    });
+</script>
+{#<p>Этот курс завершили: {{ course.completed_users.count }} человек(а).</p>#}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Получаем все элементы с классом "accordion-header"
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        // Добавляем событие клика для каждого элемента
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                // Переключаем класс "active" на текущем элементе
+                const content = this.nextElementSibling; // Следующий элемент (accordion-content)
+
+                // Если контент открыт, закрываем его
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    this.querySelector('.icon').textContent = '+'; // Меняем иконку
+                } else {
+                    // Закрываем все остальные
+                    document.querySelectorAll('.accordion-content').forEach(c => {
+                        c.style.display = 'none';
+                    });
+                    document.querySelectorAll('.icon').forEach(icon => {
+                        icon.textContent = '+';
+                    });
+
+                    // Открываем текущий
+                    content.style.display = 'block';
+                    this.querySelector('.icon').textContent = '-'; // Меняем иконку
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

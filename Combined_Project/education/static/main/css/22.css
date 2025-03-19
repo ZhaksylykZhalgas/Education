@@ -1,0 +1,234 @@
+/* Глобальные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+/* Секция Intro */
+.intro-section {
+    padding: 50px 20px; /* Отступы вокруг секции */
+}
+
+.intro-content {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Выравниваем по вертикали */
+    gap: 30px; /* Расстояние между текстом и изображением */
+    margin-top: 70px;
+    flex-wrap: nowrap;
+}
+
+.intro-text {
+    max-width: 45%;; /* Ограничиваем ширину текста */
+    color: #000000;
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.intro-text h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    margin-left: -100px;
+    width: 101%;
+}
+
+.intro-line {
+    border: none;
+    height: 2px;
+    background-color: #2f4561;
+    width: 500px;
+    margin: 20px 0 20px -100px;
+}
+
+.intro-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #000000;
+    width: 77%;
+    margin-left: -100px;
+}
+
+.intro-image img {
+    max-width: 300px; /* Уменьшаем размер изображения */
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Контейнер поиска */
+.search-container {
+    text-align: left; /* Выравниваем содержимое по левому краю */
+    position: relative;
+    width: 60%; /* Устанавливаем ширину поиска */
+    margin: 20px 50px 20px 150px;
+}
+
+/* Поле поиска */
+.search-bar {
+    width: 30%; /* Используем всю ширину контейнера */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Закругляем края */
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+    /* Отступ для иконки */
+    padding: 12px 15px 12px 40px;
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    left: 360px;
+    width: 50px;
+}
+
+.search-bar:focus {
+    border-color: #5b88cd; /* Синий цвет при фокусе */
+    box-shadow: 0 4px 8px rgba(91, 136, 205, 0.2);
+}
+
+
+/* Сетка курсов */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 карточки в строке */
+    gap: 80px;
+    padding: 20px 150px;
+}
+
+/* Карточки курсов */
+.course-card {
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left; /* Выравниваем содержимое влево */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #e6f1ff, #d0e7ff);
+}
+
+/* Заголовок карточки: фото и название */
+.course-header {
+    display: flex;
+    align-items: center; /* Выравниваем элементы по вертикали */
+    gap: 15px; /* Расстояние между фото и текстом */
+    margin-bottom: 15px;
+}
+
+/* Фото курса */
+.course-header img {
+    width: 60px; /* Размер изображения */
+    height: 60px;
+    border-radius: 50%; /* Закругляем изображение */
+    background-color: #f8f9fa;
+    padding: 5px;
+}
+
+/* Название курса */
+.course-header h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #007bff; /* Синий акцент */
+}
+
+/* Цена */
+.course-card h2 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.course-card h2 del {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+/* Описание */
+.course-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Кнопки */
+.course-buttons {
+    display: flex;
+    justify-content: space-between; /* Распределяем кнопки */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.details-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.details-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.status.completed {
+    background-color: #4caf50; /* Green background */
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+/*.enroll-btn {*/
+/*    background-color: #28a745;*/
+/*    color: white;*/
+/*}*/
+
+/*.enroll-btn:hover {*/
+/*    background-color: #218838;*/
+/*    transform: scale(1.05);*/
+/*}*/
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-image img {
+        margin-top: 20px;
+    }
+
+    .search-bar {
+        font-size: 14px;
+        width: 80%;
+    }
+}

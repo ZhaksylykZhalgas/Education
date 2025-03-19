@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="{% static 'main/css/register.css' %}">
+</head>
+<body>
+<section class="auth-container">
+    <div class="form-box">
+        <!-- Back Button -->
+        <a href="{% url 'main_page' %}" class="btn-back">Назад</a>
+        <h1>Вход</h1>
+        <p>Войдите в свою учётную запись</p>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Имя пользователя</label>
+            <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+
+            <button type="submit" class="btn-submit">Вход</button>
+        </form>
+        <p class="switch-link">
+            Нет аккаунта? <a href="{% url 'register' %}">Регистрация</a> |
+            <a href="{% url 'password_reset' %}">Забыли пароль?</a>
+        </p>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
+</body>
+</html>

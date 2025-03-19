@@ -1,0 +1,155 @@
+{% extends 'main/base.html' %}
+{% block title %}Курсы программирования{% endblock %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'main/css/5610.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="intro-section">
+        <div class="intro-content" style="gap: 0; padding-bottom: 30px">
+            <div class="intro-text">
+                <h1>Откройте для себя новые горизонты с нашими курсами!</h1>
+                <hr class="intro-line">
+                <p>
+                    Наши курсы помогут вам освоить востребованные навыки программирования. От веб-разработки до
+                    мобильных приложений – выберите направление, которое подходит именно вам!
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="{% static 'main/img/course.png' %}" alt="Programming illustration" style="max-width: 500px">
+            </div>
+        </div>
+    </section>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <form method="get" action="{% url 'course_list' %}">
+                <input type="text" name="query" placeholder="Поиск курсов..." class="search-bar">
+                <span class="search-icon" title="Поиск">&#128269;</span> <!-- Символ лупы -->
+            </form>
+        </div>
+
+        <!-- Фильтр с улучшенным дизайном -->
+        <div class="filter-container">
+            <form method="get" action="" class="filter-form">
+                <div class="filter-item">
+                    <select name="instructor" class="filter-select" aria-label="Инструктор">
+                        <option value="">Все инструкторы</option>
+                        {% for instructor in instructors %}
+                            <option value="{{ instructor.id }}"
+                                    {% if instructor.id|stringformat:"s" == request.GET.instructor %}selected{% endif %}>
+                                {{ instructor.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-item" style="">
+                    <select name="completion" class="filter-select" aria-label="Статус курса">
+                        <option value="">Все курсы</option>
+                        <option value="completed" {% if request.GET.completion == "completed" %}selected{% endif %}>
+                            Завершенные
+                        </option>
+                        <option value="not_completed"
+                                {% if request.GET.completion == "not_completed" %}selected{% endif %}>Незавершенные
+                        </option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <select name="filter_rating" class="filtered" aria-label="Рейтинг" style="
+                            padding: 12px 15px 12px 10px;
+                            border-radius: 55px;
+                            font-size: 0.9rem;
+                            border: 1px solid #ccc;
+                            color: #333;
+                            background-color: white;
+                            transition: border-color 0.2s ease-in-out;
+
+                        ">
+                        <option value="0" {% if request.GET.filter_rating == "0" %}selected{% endif %}>Все рейтинги
+                        </option>
+                        <option value="5" {% if request.GET.filter_rating == "5" %}selected{% endif %}>5 рейтинг
+                        </option>
+                        <option value="4" {% if request.GET.filter_rating == "4" %}selected{% endif %}>4 рейтинг
+                        </option>
+                        <option value="3" {% if request.GET.filter_rating == "3" %}selected{% endif %}>3 рейтинг
+                        </option>
+                        <option value="2" {% if request.GET.filter_rating == "2" %}selected{% endif %}>2 рейтинг
+                        </option>
+                        <option value="1" {% if request.GET.filter_rating == "1" %}selected{% endif %}>1 рейтинг
+                        </option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <button type="submit" class="btn-1 filter-btn-1" title="Фильтр" style="width: 50px">
+                        <div>
+                            {#                                    ✂️#}
+                            <img src="https://img.icons8.com/?size=40&id=HjFb6s4aXAL2&format=png&color=000000" alt=""
+                                 style="">
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Карточки курсов -->
+    <main style="padding-bottom: 50px">
+        <section class="courses-grid" style="display: flex; flex-wrap: wrap;  justify-content: flex-start
+                                            ; ">
+            {% for course in courses %}
+                <div class="course-card" style="flex: 1 1 calc(45% - 16px); max-width: 20%; height: 250px;
+                                            padding-top: 20px; padding-left: 20px; padding-right: 20px">
+                    <div class="course-header">
+                        <img src="{{ course.image.url }}" alt="{{ course.title }}">
+                        <h3>
+                            <div>
+                                {{ course.title }}
+                            </div>
+                            {% if course.id in completed_courses %}
+                                <span class="status completed" style="display: flex;
+                                margin-left: -3px; width: 80px">(Завершено)</span>
+                            {% endif %}
+                        </h3>
+                    </div>
+                    <p>{{ course.short_description }}</p>
+                    <div style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                            height: 30px;
+                        ">
+                        <div class="course-buttons">
+                            <a href="{% url 'more' course.slug %}" class="btn details-btn">Подробнее</a>
+                        </div>
+                        <div style="
+                            background: white;
+                            padding: 5px 15px;
+                            border-radius: 10px;
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                            font-size: 14px;
+
+                        ">
+                            <div style="text-align: right;">
+                                <span class="rating-label" style="
+                                font-size: 14px;
+                                font-weight: bold;
+                                color: #555;
+                                width: 100px;
+                                ">Рейтинг:</span>
+                                <span class="rating-value" style="
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    color: #007bff;
+                                ">{{ course.average_rating }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+
+{% endblock %}

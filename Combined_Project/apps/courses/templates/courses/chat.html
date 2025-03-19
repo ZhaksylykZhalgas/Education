@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("message").value;
+            const response = await fetch(".", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": "{{ csrf_token }}",
+                },
+                body: `message=${message}`
+            });
+            const data = await response.json();
+            document.getElementById("chat").innerHTML += `<p><b>Вы:</b> ${message}</p>`;
+            document.getElementById("chat").innerHTML += `<p><b>Бот:</b> ${data.response}</p>`;
+            document.getElementById("message").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h1>ChatBot</h1>
+    <div id="chat" style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll;"></div>
+    <input type="text" id="message" placeholder="Введите сообщение" />
+    <button onclick="sendMessage()">Отправить</button>
+</body>
+</html>

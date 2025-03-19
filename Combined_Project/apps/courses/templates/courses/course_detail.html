@@ -1,0 +1,14 @@
+<!-- courses/course_detail.html -->
+{% extends 'courses/base.html' %}
+
+{% block main %}
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+    <img src="{{course.image.url}}" height="500">
+    <h2>Lessons</h2>
+
+        {% for lesson in lessons %}
+            <p><a href="{% url 'lesson_detail' course_slug=course.url slug=lesson.url %}">{{ lesson.title }}</a></p>
+        {% endfor %}
+
+{% endblock %}

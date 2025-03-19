@@ -1,0 +1,344 @@
+header {
+    display: flex;
+    justify-content: space-between; /* Пространство между группами элементов */
+    align-items: center;
+    padding: 20px 50px;
+    color: #000000;
+    position: relative;
+    z-index: 1;
+}
+
+.user-section {
+    display: flex;
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: flex-end; /* Сдвигаем всё вправо */
+    gap: 10px; /* Отступ между именем и кнопкой */
+    margin-left: auto; /* Занимает доступное пространство и прижимает вправо */
+}
+
+/* Имя пользователя */
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; /* Предотвращаем перенос */
+}
+
+
+.logout-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.user-section .username {
+    font-weight: bold;
+    color: #333;
+    font-size: 20px;
+}
+
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+}
+
+.alert {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.alert.success {
+    background-color: #4caf50;
+}
+
+.alert.error {
+    background-color: #f44336;
+}
+
+.alert.info {
+    background-color: #2196f3;
+}
+
+
+.email-notification {
+    background: #e7f1ff; /* Светло-голубой фон */
+    color: #0056b3; /* Тёмно-синий текст */
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+.email-notification p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    color: #0056b3; /* Тёмно-синий цвет для текста */
+}
+
+.email-notification a {
+    background: #007bff; /* Основной синий цвет кнопки */
+    color: #ffffff; /* Белый текст */
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.email-notification a:hover {
+    background: #0056b3; /* Более тёмный синий при наведении */
+    transform: scale(1.05);
+}
+
+
+/*body {*/
+/*    font-family: Arial, sans-serif;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background: linear-gradient(to bottom, #5b88cd, #cfdcea);*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*}*/
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.welcome-box h1 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.welcome-box p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.logout-btn {
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    left: 250px;
+}
+
+.logout-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.logout-btn-1 {
+    background: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    left: 250px;
+    position: relative;
+}
+
+.logout-btn-1:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+header .logo {
+    font-size: 34px;
+    font-weight: bold;
+    margin-left: 100px; /* Смещение логотипа вправо */
+    margin-top: 10px;
+    flex: 1; /* Логотип занимает левую часть */
+    text-align: left; /* Логотип выравнен по левому краю */
+}
+
+header nav {
+    flex: 5; /* Навигация занимает центральную часть */
+    display: flex;
+    justify-content: center; /* Центрируем ссылки */
+    gap: 20px; /* Промежутки между ссылками */
+}
+
+header .login {
+    flex: 1; /* Вход занимает правую часть */
+    text-align: right; /* Выравниваем "Вход" по правому краю */
+    font-size: 24px;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000000; /* Белый цвет текста в навигации */
+    font-size: 26px;
+}
+
+header nav a.active {
+    color: #0015ff; /* Активная ссылка с выделением */
+    font-weight: bold;
+}
+
+/* Треугольный фон */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    clip-path: polygon(15% -15px, 450px 100%, 842% 88%);
+    z-index: -1; /* Размещаем позади текста */
+}
+
+nav ul li a.active {
+    color: #007bff; /* Blue color for the active link */
+    font-weight: bold; /* Make the active link bold */
+    text-decoration: underline; /* Optional: underline the active link */
+}
+
+.site-footer {
+    background: linear-gradient(to bottom, #73a3ec, #cfdcea); /* Gradient background */
+    color: #000000;
+    padding: 25px 20px; /* Slightly larger padding for better spacing */
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px; /* Increased gap for better spacing between sections */
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Subtle border for separation */
+    padding-bottom: 30px; /* Slightly increased padding */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact {
+    flex: 1;
+    min-width: 280px; /* Adjusted for better balance */
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 20px; /* Slightly larger font size for headers */
+    margin-bottom: 20px;
+    border-bottom: 3px solid #252525; /* Thicker border for emphasis */
+    display: inline-block;
+    padding-bottom: 8px;
+    color: #333; /* Darker text for headers */
+}
+
+.footer-about p,
+.footer-contact p {
+    font-size: 15px; /* Slightly larger font for better readability */
+    line-height: 1.8; /* Increased line height for better spacing */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px; /* Slightly larger font */
+    transition: color 0.3s ease, transform 0.2s; /* Added smooth hover effect */
+}
+
+.footer-links ul li a:hover {
+    color: #0056b3; /* Changed hover color for better visibility */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px; /* Slightly larger margin for spacing */
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6); /* Slightly lighter text color */
+    font-weight: bold; /* Added emphasis */
+}
+
+/* Additional Styles for Icons */
+.footer-contact i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #0056b3;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between icons and text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-about,
+    .footer-links,
+    .footer-contact {
+        margin-bottom: 30px; /* Increased margin for spacing */
+    }
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+

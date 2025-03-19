@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="edit-comment-section">
+    <h2>Редактировать комментарий</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="text" rows="5" required>{{ form.text.value }}</textarea>
+        <button type="submit" class="submit-btn">Сохранить изменения</button>
+    </form>
+
+    <a href="{% url 'more' comment.course.slug %}" class="cancel-btn">Отмена</a>
+</section>
+
+</body>
+</html>

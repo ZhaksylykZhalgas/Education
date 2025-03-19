@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lesson.title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/lesson_detail.css' %}">
+</head>
+<body>
+<div class="lesson-container">
+    <h1>{{ lesson.title }}</h1>
+    <p class="lesson-type">Тип урока: {{ lesson.get_lesson_type_display }}</p>
+    <div class="video-container">
+        <video controls>
+            <source src="{{ lesson.video.url }}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    <a href="{% url 'course_detail' lesson.course.slug %}" class="back-link">Вернуться к курсу</a>
+</div>
+<div class="course-rating">
+    <h2>Средний рейтинг</h2>
+    <p>{{ course.rating }} / 5</p>
+    <a href="{% url 'add_rating' course.slug %}" class="rate-btn">Оценить курс</a>
+</div>
+
+</body>
+</html>

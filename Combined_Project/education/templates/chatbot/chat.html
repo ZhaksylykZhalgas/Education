@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}"> <!-- CSRF токен -->
+    <title>Чат с ботом</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center; /* Центрируем чат на странице */
+            align-items: center; /* Вертикальное выравнивание */
+            height: 100vh;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 700px; /* Фиксированная высота чата */
+            width: 1100px; /* Фиксированная ширина чата */
+            background: #fff;
+            border: 1px solid #ddd; /* Добавляем рамку для визуального разделения */
+            border-radius: 10px; /* Скругляем углы */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Тень для выделения */
+            overflow: hidden; /* Убираем выход элементов за границы */
+        }
+
+        .chat-header {
+            background: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            {#justify-content: space-between;#}
+            gap: 402px;
+            align-items: center;
+            font-size: 1.2em;
+        }
+
+        .chat-header a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            background: #1976D2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .chat-header a:hover {
+            background: #1565C0;
+        }
+
+        #chat {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            max-width: 90%;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 0.9em;
+        }
+
+        .message-user {
+            align-self: flex-end;
+            background: #BBDEFB;
+            color: #333;
+        }
+
+        .message-bot {
+            align-self: flex-start;
+            background: #E3F2FD;
+            color: #333;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            background: #f1f1f1;
+            border-top: 1px solid #ddd;
+        }
+
+        #message {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        button {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #1E88E5;
+        }
+
+        /* Адаптивный дизайн */
+        @media (max-width: 480px) {
+            .chat-container {
+                width: 100%;
+                height: 80%;
+            }
+
+            .chat-header {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("message").value;
+            if (!message.trim()) return; // Проверка на пустое сообщение
+
+            try {
+                const response = await fetch("chatbot", { // Укажите корректный URL
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "X-CSRFToken": document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // CSRF токен
+                    },
+                    body: `message=${encodeURIComponent(message)}`
+                });
+
+                if (!response.ok) {
+                    console.error("Ошибка запроса:", response.statusText);
+                    alert("Ошибка на сервере.");
+                    return;
+                }
+
+                const data = await response.json();
+
+                const chatBox = document.getElementById("chat");
+                chatBox.innerHTML += `<div class="chat-message message-user"><b>Вы:</b> ${message}</div>`;
+                chatBox.innerHTML += `<div class="chat-message message-bot"><b>Бот:</b> ${data.response}</div>`;
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+                document.getElementById("message").value = "";
+            } catch (error) {
+                console.error("Ошибка при отправке сообщения:", error);
+                alert("Не удалось отправить сообщение. Проверьте подключение.");
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-header">
+        <a href="{% url 'main_page' %}">Назад</a>
+        Чат с ботом
+
+    </div>
+    <div id="chat"></div>
+    <div class="chat-input">
+        <input type="text" id="message" placeholder="Введите сообщение"
+               onkeypress="if(event.key === 'Enter') sendMessage()"/>
+        <button onclick="sendMessage()">Отправить</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+/* Главный блок */
+main {
+    display: flex;
+    flex-wrap: wrap; /* Адаптивное поведение */
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    color: #333;
+    text-align: center;
+}
+
+main .container {
+    flex: 1;
+    min-width: 300px; /* Минимальная ширина */
+    max-width: 600px; /* Максимальная ширина */
+}
+
+main h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.line {
+    width: 50%;
+    height: 2px;
+    background-color: #405d7e;
+    margin: 20px auto;
+}
+
+main p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Нижний блок */
+.bottom-section {
+    display: flex;
+    flex-wrap: wrap; /* Адаптивность */
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.bottom-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+.bottom-text-1 {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.bottom-text-1 h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.line-2 {
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    margin: 15px auto;
+}
+
+.bottom-text-1 p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Секция курсов */
+.courses {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.course-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.course {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 250px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.course img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.course h3 {
+    font-size: 1.2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.course p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background: #a7cbff;
+}
+
+.courses-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.courses-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+    }
+
+    .bottom-text-1 {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 2rem;
+    }
+
+    .courses h2 {
+        font-size: 1.8rem;
+    }
+
+    .course {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    main {
+        padding: 30px 10px;
+    }
+
+    main h1 {
+        font-size: 1.8rem;
+    }
+
+    .bottom-text-1 h2,
+    .courses h2 {
+        font-size: 1.5rem;
+    }
+
+    .line,
+    .line-2 {
+        width: 80%;
+    }
+
+    .course {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .courses-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

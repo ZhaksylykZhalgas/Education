@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/basic.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+<header>
+    <div class="logo">Daryn</div>
+    <nav>
+        <a href="{% url 'main_page' %}"
+           class="{% if request.resolver_match.url_name == 'main_page' %}active{% endif %}">Главная</a>
+        <a href="{% url 'kyrs' %}" class="{% if request.resolver_match.url_name == 'kyrs' %}active{% endif %}">Курсы</a>
+        <a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">О
+            нас</a>
+        <a href="{% url 'contact' %}">Контакты</a>
+        <a href="{% url 'chatbot' %}">Чат</a>
+
+        {% if user.is_authenticated %}
+            <div class="user-section">
+                {% if not user.is_email_verified %}
+                    <div class="email-notification">
+                        <p>Ваш email не подтверждён.</p>
+                        <a href="{% url 'resend_email_confirmation' %}" class="btn-resend"
+                           title="Отправить повторна">🔄</a>
+                    </div>
+                    <div class="user-section">
+                        <span class="username">{{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class="logout-btn">Выход</a>
+                    </div>
+                {% else %}
+                    <div class="user-section">
+                        <span class="username">{{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class="logout-btn">Выход</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <a href="{% url 'login' %}" class="logout-btn-1">Вход</a>
+        {% endif %}
+
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </nav>
+</header>
+
+
+
+
+
+
+
+{% block content %}
+{% endblock %}
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-about">
+            <h3>О нас</h3>
+            <p>Мы предлагаем лучшие курсы для начинающих и профессионалов. Присоединяйтесь к нам и станьте
+                экспертом!</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Быстрые ссылки</h3>
+            <ul>
+                <li><a href="{% url 'main_page' %}">Главная</a></li>
+                <li><a href="{% url 'kyrs' %}">Курсы</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact">
+            <h3>Контакты</h3>
+            <p><strong>Email:</strong> ziqzaq2005@gmail.com</p>
+            <p><strong>Телефон:</strong> +7 747 179 25 66</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Daryn. Все права защищены.</p>
+    </div>
+</footer>
+<script src="{% static 'main/js/course_search.js' %}"></script>
+<script>
+    // Автоматическое удаление сообщений через 5 секунд
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => alert.remove());
+    }, 2000); // 5000 миллисекунд = 5 секунд
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обратная связь</title>
+    <link rel="stylesheet" href="{% static 'main/css/contact.css' %}">
+</head>
+<body>
+<section class="feedback-form">
+    <div class="form-container">
+        <a href="{% url 'main_page' %}" class="btn-back-1">Назад</a>
+        <h1>Есть ли у вас идеи?</h1>
+        <h2>Помогите нам улучшить обслуживание</h2>
+        <p>Поделитесь своими идеями или оставьте отзыв, и мы обязательно их учтём!</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-submit">Отправить</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>

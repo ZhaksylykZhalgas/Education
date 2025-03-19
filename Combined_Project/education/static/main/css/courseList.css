@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Переход от синего к белому */
+    height: 100vh; /* Устанавливаем высоту экрана для полного отображения */
+    /* Закрепляем градиент на месте при прокрутке */
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+.courses-section {
+    padding: 50px 20px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.courses-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.courses-heading {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #000;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid layout */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 2fr));
+    gap: 30px;
+    align-items: stretch;
+    width: 500px;
+}
+.back-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #09396c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+/* Individual course card */
+.course-item {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Course thumbnail */
+.course-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Course content */
+.course-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.course-title {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.course-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Button */
+.course-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.course-link:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}

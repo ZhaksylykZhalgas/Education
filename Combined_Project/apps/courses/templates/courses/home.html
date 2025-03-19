@@ -1,0 +1,51 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block main %}
+<section class="home">
+    <div class="home-content">
+        <h1>Ты научишься от нас </h1>
+        <h3>стать программистом</h3>
+        <p>  Добро пожаловать в уникальный мир, где каждая строка кода - это кисть на холсте, а каждый алгоритм - это симфония виртуального творчества. Наши курсы предлагают не просто обучение, а погружение в изящество программирования.</p>
+        <div class="btn-box">
+            <a href="{% url 'course' %}">Подробнее</a>
+        </div>
+    </div>
+    <div class="home-img">
+        <img src="{% static 'gasyrlab/images/home.png' %}" alt="" >
+    </div>
+</section>
+<section class="home2">
+    <div class="home-content2">
+        <img src="{% static 'gasyrlab/images/left.png' %}" alt="" class="img-left">
+        <img src="{% static 'gasyrlab/images/right.png' %}" alt="" class="img-right">
+        <h1>Чему вы научитесь</h1>
+        <p>   Погрузитесь в увлекательный мир программирования с нашим курсом! Независимо от вашего уровня подготовки - от новичка до опытного разработчика - наши уроки помогут вам освоить ключевые языки программирования и концепции разработки программного обеспечения. Изучайте практические навыки, необходимые для создания впечатляющих веб-сайтов, мобильных приложений и многое другое.</p>
+        <div class="btn-box2">
+            <a href="{% url 'course' %}">Подробнее</a>
+        </div>
+    </div>
+</section>
+<div class="line"></div>
+<!--<section class="home3">-->
+<!--    <div class="home-content3">-->
+<!--        <h1>Погрузись в Мир Кода: Наши Курсы для Тех,-->
+<!--         Кто Мечтает Стать Программистом</h1>-->
+<!--    </div>-->
+<!--</section>-->
+<section class="block-container">
+    {% for c in courses|slice:":3" %}
+    <!-- Отобразить только первые 5 курсов -->
+    <div class="block1">
+        <a href="{{ c.get_absolute_url }}">
+            <img src="{{c.image.url}}" alt="">
+            <h2>{{c.title}}</h2>
+            <!-- Ограничиваем описание курса до 100 символов -->
+            <p>{{c.description|truncatechars:100}}</p>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+
+{% endblock %}

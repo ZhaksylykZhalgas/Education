@@ -1,0 +1,264 @@
+/* Основные стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #f0f4f8, #d9e8fd);
+    color: #2b2d42;
+    line-height: 1.8;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #006bf1;
+}
+
+/* Заголовок курса */
+.course-header {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 4px solid #1e3a8a;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.course-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: #1e40af;
+    border-radius: 10px;
+}
+
+.course-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.course-header .back-btn {
+    display: inline-block;
+    background: #fbbf24;
+    color: #1e3a8a;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.course-header .back-btn:hover {
+    background: #f59e0b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Аккордеон */
+.accordion {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.accordion-item {
+    border-top: 1px solid #f0f0f0;
+    overflow: hidden;
+}
+
+.accordion-item:first-child {
+    border-top: none;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    color: #3b82f6;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #e3f2fd;
+    color: #2563eb;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.accordion-header .icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3b82f6;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header.active .icon {
+    transform: rotate(45deg);
+    color: #1e3a8a;
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.accordion-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.accordion-content video {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.accordion-content .material-link {
+    display: inline-block;
+    background: #3b82f6;
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-content .material-link:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* Рейтинг курса */
+.course-rating {
+    margin: 40px auto;
+    max-width: 900px;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.course-rating h2 {
+    font-size: 26px;
+    color: #3b82f6;
+    margin-bottom: 20px;
+}
+
+.course-rating form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.course-rating label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2b2d42;
+}
+
+.course-rating select {
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.course-rating select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0px 0px 5px rgba(59, 130, 246, 0.5);
+}
+
+.course-rating button {
+    background: #3b82f6;
+    color: #ffffff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.course-rating button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-header h1 {
+        font-size: 28px;
+    }
+
+    .course-rating form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .course-rating button {
+        width: 100%;
+    }
+}

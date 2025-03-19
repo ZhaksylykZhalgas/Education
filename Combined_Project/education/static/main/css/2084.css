@@ -1,0 +1,416 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+    color: #2b2d42;
+    line-height: 1.8;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Заголовок курса */
+/* Секция заголовка курса */
+.course-header {
+    background: #e6f1ff;
+    color: #000000;
+    text-align: center;
+    padding: 20px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+    width: 1200px;
+    margin-left: 225px;
+    margin-top: 30px;
+}
+
+.course-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.course-header .back-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #8aa5ff, #d5dced);
+    /* color: #ffffff; */
+    padding: 5px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    position: absolute;
+    margin-right: 1000px;
+    margin-top: 4px;
+}
+
+.course-header .back-btn:hover {
+    background: linear-gradient(90deg, #6d83ef, #0583ef);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-header .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.course-header .back-btn::before {
+    content: "← ";
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.complete-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    margin-left: 400px;
+    margin-top: -50px;
+}
+
+.complete-btn:hover {
+    background: linear-gradient(90deg, #388e3c, #66bb6a);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.complete-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Общий стиль для секций */
+.lessons-section {
+    margin: 50px auto;
+    /*padding: 20px;*/
+    padding: 20px 20px 5px;
+    max-width: 900px;
+    background: #f8f9fb;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lessons-section h2 {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Аккордеон */
+.accordion {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Заголовок аккордеона */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background: #f1f1f1;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+    background-color: #abc9f4;
+}
+
+.accordion-header:hover {
+    background: #e6e6e6;
+}
+
+.accordion-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.accordion-header .icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header.active .icon {
+    transform: rotate(180deg);
+    color: #007bff;
+}
+
+/* Содержимое аккордеона */
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background: #ffffff;
+    animation: slideDown 0.3s ease-in-out;
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+.accordion-content p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.accordion-content video {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Ссылки для дополнительных материалов */
+.accordion-content .material-link {
+    /*position: absolute;*/
+    /*display: inline-block;*/
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    /*margin-left: 280px;*/
+    /*margin-top: 135px;*/
+}
+
+.accordion-content .material-link:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Анимация */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .accordion-content p {
+        font-size: 14px;
+    }
+
+    .lessons-section h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* Рейтинг курса */
+/* Секция рейтинга курса */
+.course-rating {
+    margin: 40px auto;
+    max-width: 900px;
+    background: #f9fafc;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.course-rating h2 {
+    font-size: 28px;
+    color: #1d4ed8;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.course-rating form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.course-rating label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #374151;
+}
+
+.course-rating select {
+    padding: 12px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #ffffff;
+    color: #374151;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+.course-rating select:hover {
+    border-color: #3b82f6;
+}
+
+.course-rating select:focus {
+    border-color: #2563eb;
+    box-shadow: 0px 0px 8px rgba(37, 99, 235, 0.3);
+}
+
+.course-rating button {
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.course-rating button:hover {
+    background: linear-gradient(90deg, #1e3a8a, #1d4ed8);
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-rating h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #1e40af;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.thank-you-message {
+    padding: 20px;
+    background: #e6ffe6;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.thank-you-message h3 {
+    color: #4caf50;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.thank-you-message p {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.current-rating-container {
+    display: flex;
+    align-items: center; /* Центрируем звезды и текст по вертикали */
+    gap: 10px; /* Расстояние между текстом и звездами */
+    font-size: 18px;
+    justify-content: center;
+}
+
+.current-rating {
+    display: flex;
+    gap: 4px; /* Расстояние между звездами */
+}
+
+.current-rating span {
+    color: #f39c12; /* Цвет активных звезд */
+    font-size: 20px; /* Размер звезд */
+}
+
+.current-rating .inactive {
+    color: #d1d5db; /* Цвет неактивных звезд */
+}
+
+.current-rating-text {
+    color: #374151; /* Цвет текста */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+

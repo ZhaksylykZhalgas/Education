@@ -1,0 +1,454 @@
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Переход от синего к белому */
+    height: 100vh; /* Устанавливаем высоту экрана для полного отображения */
+    /* Закрепляем градиент на месте при прокрутке */
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+/*header {*/
+/*    display: flex;*/
+/*    justify-content: space-between; !* Пространство между группами элементов *!*/
+/*    align-items: center;*/
+/*    padding: 20px 50px;*/
+/*    color: #000000;*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*}*/
+/*.main-container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.welcome-box {*/
+/*    background: white;*/
+/*    padding: 40px;*/
+/*    border-radius: 15px;*/
+/*    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);*/
+/*    width: 400px;*/
+/*}*/
+
+/*.welcome-box h1 {*/
+/*    font-size: 28px;*/
+/*    color: #007bff;*/
+/*    margin-bottom: 15px;*/
+/*}*/
+
+/*.welcome-box p {*/
+/*    font-size: 16px;*/
+/*    color: #555;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+
+/*.logout-btn {*/
+/*    text-decoration: none;*/
+/*    background: #007bff;*/
+/*    color: white;*/
+/*    padding: 12px 25px;*/
+/*    border-radius: 25px;*/
+/*    font-weight: bold;*/
+/*    font-size: 16px;*/
+/*    transition: background-color 0.3s, transform 0.3s;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    position: relative;*/
+/*    left: 250px;*/
+/*}*/
+
+/*.logout-btn:hover {*/
+/*    background: #0056b3;*/
+/*    transform: scale(1.05);*/
+/*}*/
+/*header .logo {*/
+/*    font-size: 34px;*/
+/*    font-weight: bold;*/
+/*    margin-left: 100px; !* Смещение логотипа вправо *!*/
+/*    margin-top: 10px;*/
+/*    flex: 1; !* Логотип занимает левую часть *!*/
+/*    text-align: left; !* Логотип выравнен по левому краю *!*/
+/*}*/
+
+/*header nav {*/
+/*    flex: 5; !* Навигация занимает центральную часть *!*/
+/*    display: flex;*/
+/*    justify-content: center; !* Центрируем ссылки *!*/
+/*    gap: 20px; !* Промежутки между ссылками *!*/
+/*}*/
+
+/*header .login {*/
+/*    flex: 1; !* Вход занимает правую часть *!*/
+/*    text-align: right; !* Выравниваем "Вход" по правому краю *!*/
+/*    font-size: 24px;*/
+/*}*/
+
+/*header nav a {*/
+/*    margin: 0 15px;*/
+/*    text-decoration: none;*/
+/*    color: #000000; !* Белый цвет текста в навигации *!*/
+/*    font-size: 26px;*/
+/*}*/
+
+/*header nav a.active {*/
+/*    color: #0015ff; !* Активная ссылка с выделением *!*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*!* Треугольный фон *!*/
+/*header::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: #ffffff;*/
+/*    clip-path: polygon(20% 1px, 450px 100%, 1000% 10%);*/
+/*    z-index: -1; !* Размещаем позади текста *!*/
+/*}*/
+
+main {
+    display: flex;
+    align-items: flex-start; /* Сместить содержимое вниз */
+    justify-content: space-between;
+    padding: 50px 70px 50px; /* Отступ сверху увеличен */
+    color: #000000; /* Белый цвет текста */
+    position: relative;
+    z-index: 1;
+
+}
+
+main .container {
+    max-width: 35%;
+    margin-left: 170px;
+    margin-top: 190px;
+}
+
+main .content h1 {
+    font-size: 58px;
+    color: #000000; /* Белый цвет текста */
+    font-weight: bold;
+    margin-top: 50px;
+}
+.line {
+    border: none; /* Убираем стандартный стиль */
+    height: 1px; /* Устанавливаем высоту линии */
+    background-color: #405d7e; /* Цвет линии */
+    margin-bottom: 20px; /* Отступ после линии */
+    width: 80%; /* Ширина линии */
+    margin-left: 0; /* Выравниваем по левому краю */
+}
+
+main .content p {
+    font-size: 16px;
+    margin: 20px 0;
+    color: #000000; /* Белый цвет текста */
+}
+
+main .buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px; /* Более крупный размер кнопки */
+    background-color: #fafafa; /* Основной цвет кнопки */
+    color: #070707; /* Цвет текста */
+    font-size: 16px; /* Увеличиваем размер текста */
+    font-weight: bold; /* Делаем текст жирным */
+    text-transform: uppercase; /* Преобразуем текст в заглавные буквы */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 10px; /* Закругляем углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем легкую тень */
+    transition: all 0.3s ease; /* Плавный переход при наведении */
+    border: 2px solid transparent; /* Начальный цвет рамки */
+    margin-left: 375px;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Цвет кнопки при наведении */
+    color: #fff; /* Цвет текста при наведении */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+    transform: translateY(-2px); /* Легкий подъем кнопки */
+    border: 2px solid #0056b3; /* Добавляем рамку при наведении */
+}
+
+.btn:active {
+    transform: translateY(0); /* Убираем подъем при клике */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Возвращаем стандартную тень */
+}
+
+
+main .image img {
+    border-radius: 15px;
+    width: 500px; /* Устанавливаем ширину */
+    height: 700px; /* Устанавливаем высоту */
+    object-fit: cover; /* Делает изображение адаптивным внутри контейнера */
+    margin-left: -700px;
+    margin-top: -50px;
+}
+
+.dlexr>.container {
+    display: block;
+}
+.bottom-section {
+    padding: 50px 100px; /* Отступы вокруг секции */
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+.bottom-container {
+    display: flex; /* Flexbox для расположения изображения и текста */
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: space-between; /* Пространство между изображением и текстом */
+}
+
+.bottom-image img {
+    width: 500px; /* Ширина изображения */
+    height: auto; /* Сохраняем пропорции */
+
+}
+
+.bottom-image-1 img {
+    width: 500px; /* Ширина изображения */
+    height: auto; /* Сохраняем пропорции */
+    margin-top: 100px;
+
+}
+
+.bottom-text {
+    max-width: 90%; /* Ограничиваем ширину текстового блока */
+    padding-left: 30px; /* Отступ между текстом и изображением */
+    color: #333; /* Цвет текста */
+    margin-top: 300px;
+}
+.bottom-text-1{
+    margin-left: -584px;
+    margin-top: -100px;
+}
+.line-2{
+    background-color: black;
+    border: none;
+    height: 1px;
+    width: 40%;
+    margin-left: 640px;
+}
+.bottom-text h2 {
+    font-size: 36px; /* Размер заголовка */
+    font-weight: bold; /* Жирный текст */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.bottom-text p {
+    font-size: 18px; /* Размер текста */
+    line-height: 1.6; /* Межстрочный интервал */
+    margin-bottom: 15px; /* Отступ между параграфами */
+    color: #070707; /* Цвет текста для мягкости */
+}
+/* Стили для секции курсов */
+.courses {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Плавный эффект при наведении */
+}
+
+.courses h2 a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333;
+}
+
+.courses h2 a:hover {
+    color: #007bff; /* Изменение цвета при наведении */
+}
+
+.course-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Для адаптивности на мобильных устройствах */
+}
+
+.course {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    flex: 1;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #333; /* Цвет текста */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Эффект наведения */
+    display: block;
+    width: 100%; /* Убедитесь, что ширина соответствует родительскому контейнеру */
+    /* Ограничьте максимальную ширину блока */
+    margin: 0 auto; /* Центрируйте блок */
+    /* Выравнивание текста по центру */
+    word-wrap: break-word; /* Перенос слов */
+    overflow-wrap: break-word; /* Альтернативный метод для переноса слов */
+    flex-direction: column;
+}
+
+.course img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.course h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.course p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+     word-wrap: break-word;  /* Разбивает длинные слова */
+    overflow-wrap: break-word;
+}
+
+.course:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Добавляем тень при наведении */
+        background: #a7cbff;
+
+}
+
+.courses-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: -900px;
+}
+
+.courses-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.line-1{
+    border: none; /* Убираем стандартный стиль */
+    height: 1px; /* Устанавливаем высоту линии */
+    background-color: #405d7e; /* Цвет линии */
+    margin-bottom: 20px; /* Отступ после линии */
+    width: 100%; /* Ширина линии */
+    margin-left: 0; /* Выравниваем по левому краю */
+    margin-top: 50px;
+}
+
+/*.site-footer {*/
+/*    background: linear-gradient(to bottom, #73a3ec, #cfdcea); !* Gradient background *!*/
+/*    color: #000000;*/
+/*    padding: 25px 20px; !* Slightly larger padding for better spacing *!*/
+/*    font-family: Arial, sans-serif;*/
+/*}*/
+
+/*.footer-container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 40px; !* Increased gap for better spacing between sections *!*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*    border-bottom: 1px solid rgba(0, 0, 0, 0.2); !* Subtle border for separation *!*/
+/*    padding-bottom: 30px; !* Slightly increased padding *!*/
+/*}*/
+
+/*.footer-about,*/
+/*.footer-links,*/
+/*.footer-contact {*/
+/*    flex: 1;*/
+/*    min-width: 280px; !* Adjusted for better balance *!*/
+/*}*/
+
+/*.footer-about h3,*/
+/*.footer-links h3,*/
+/*.footer-contact h3 {*/
+/*    font-size: 20px; !* Slightly larger font size for headers *!*/
+/*    margin-bottom: 20px;*/
+/*    border-bottom: 3px solid #252525; !* Thicker border for emphasis *!*/
+/*    display: inline-block;*/
+/*    padding-bottom: 8px;*/
+/*    color: #333; !* Darker text for headers *!*/
+/*}*/
+
+/*.footer-about p,*/
+/*.footer-contact p {*/
+/*    font-size: 15px; !* Slightly larger font for better readability *!*/
+/*    line-height: 1.8; !* Increased line height for better spacing *!*/
+/*}*/
+
+/*.footer-links ul {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.footer-links ul li {*/
+/*    margin-bottom: 12px;*/
+/*}*/
+
+/*.footer-links ul li a {*/
+/*    text-decoration: none;*/
+/*    color: #000000;*/
+/*    font-size: 15px; !* Slightly larger font *!*/
+/*    transition: color 0.3s ease, transform 0.2s; !* Added smooth hover effect *!*/
+/*}*/
+
+/*.footer-links ul li a:hover {*/
+/*    color: #0056b3; !* Changed hover color for better visibility *!*/
+/*    transform: scale(1.1); !* Slight zoom effect on hover *!*/
+/*}*/
+
+/*.footer-bottom {*/
+/*    text-align: center;*/
+/*    margin-top: 30px; !* Slightly larger margin for spacing *!*/
+/*    font-size: 14px;*/
+/*    color: rgba(0, 0, 0, 0.6); !* Slightly lighter text color *!*/
+/*    font-weight: bold; !* Added emphasis *!*/
+/*}*/
+
+/*!* Additional Styles for Icons *!*/
+/*.footer-contact i {*/
+/*    font-size: 18px;*/
+/*    margin-right: 10px;*/
+/*    color: #0056b3;*/
+/*}*/
+
+/*.footer-contact p {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 10px; !* Spacing between icons and text *!*/
+/*}*/
+
+/*!* Responsive Design *!*/
+/*@media (max-width: 768px) {*/
+/*    .footer-container {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*    }*/
+
+/*    .footer-about,*/
+/*    .footer-links,*/
+/*    .footer-contact {*/
+/*        margin-bottom: 30px; !* Increased margin for spacing *!*/
+/*    }*/
+/*}*/
+

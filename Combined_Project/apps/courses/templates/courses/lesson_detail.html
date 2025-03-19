@@ -1,0 +1,76 @@
+{% extends 'courses/base.html' %}
+{% block style %}
+    <style>
+        /* Ваши стили */
+        .question-text {
+            color: #333 !important;
+            text-align: center !important;
+            font-size: 50px !important;
+        }
+
+        /* Стилизация ответов */
+        .form-check-label {
+            color: #007bff !important;
+            font-size: 16px !important;
+            cursor: pointer !important;
+            padding: 10px 20px !important;
+            border-radius: 5px !important;
+        }
+
+        /* Стилизация ответов при выборе */
+        .form-check-input:checked + .form-check-label {
+            background-color: #007bff !important;
+            color: #fff !important;
+        }
+
+        /* Стилизация кнопки Submit */
+        .submit-button {
+            background-color: #007bff !important;
+            color: #fff !important;
+            border: none !important;
+            padding: 10px 20px !important;
+            border-radius: 5px !important;
+            font-size: 16px !important;
+            cursor: pointer !important;
+        }
+
+        /* Стилизация кнопки Submit при наведении */
+        .submit-button:hover {
+            background-color: #0056b3 !important;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+<p>{{lesson.title}}</p>
+<video width="1380" height="720" controls>
+  <source src="{{ lesson.video.url }}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+ <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="question-text">Quiz</h1>
+                <form id="quiz-form" method="post" class="mt-4">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="submit-button btn btn-primary btn-lg btn-block mt-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Обработчик клика на ответ
+        document.querySelectorAll('.form-check-input').forEach(function(input) {
+            input.addEventListener('change', function() {
+                // Очистить стиль выбранных ответов
+                document.querySelectorAll('.form-check-label').forEach(function(label) {
+                    label.classList.remove('selected');
+                });
+                // Установить стиль выбранного ответа
+                var selectedLabel = this.parentNode.querySelector('.form-check-label');
+                selectedLabel.classList.add('selected');
+            });
+        });
+    </script>
+{% endblock %}

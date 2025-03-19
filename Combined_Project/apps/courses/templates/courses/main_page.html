@@ -1,0 +1,80 @@
+{% extends 'courses/base.html' %}
+{% load static %}
+
+{% block style %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasyr Lab</title>
+    <link rel="stylesheet" href="{% static 'gasyrlab/css/11.css' %}">
+{% endblock style %}
+{% block main %}
+<!-- x-->
+    <main>
+        <div class="container">
+            <h1>Ты научишься от нас стать программистом</h1>
+            <hr class="line">
+            <p>
+                Добро пожаловать в уникальный мир, где каждая строка кода - это кисть на холсте,
+                а каждый алгоритм - это симфония виртуального творчества. Наши курсы предлагают не
+                просто обучение, а погружение в изящество программирования.
+            </p>
+
+        </div>
+        <div class="bottom-section">
+            <div class="bottom-image">
+                <img src="{% static 'gasyrlab/images/course.png' %}" alt="Example">
+            </div>
+            <div class="bottom-text-1">
+                <div class="bottom-image-1">
+                <img src="{% static 'gasyrlab/images/course.png' %}" alt="Example">
+            </div>
+                <h2 style="
+                    margin-top: 10px;
+                    margin-left: 736px;
+                    margin-top: -275px;
+                ">Что вы научитесь</h2>
+                <hr class="line-2">
+                <p style="margin-left: 640px;">
+
+                    На наших курсах вы освоите основы программирования, изучите популярные языки и инструменты,
+                    а также получите практические навыки для построения карьеры в IT.
+                </p >
+                <p style="margin-left: 640px;">
+                    Независимо от вашего уровня подготовки, вы сможете создать свои собственные проекты, которые
+                    помогут вам выделиться среди конкурентов.
+                </p>
+            </div>
+        </div>
+    </main>
+    <hr class="line-1">
+<section class="courses">
+    <h2>Открой мир кода: Курсы для будущих программистов</h2>
+    <div class="course-container">
+        <a href="/" class="course">
+            <img src="{% static 'gasyrlab/images/course.png' %}" alt="Web разработчик">
+            <h3>Web разработчик</h3>
+            <p>
+                Изучите основы HTML, CSS и JavaScript. Создавайте интерактивные веб-сайты и станьте профессиональным веб-разработчиком.
+            </p>
+        </a>
+        <a href="/" class="course">
+            <img src="{% static 'gasyrlab/images/course.png' %}" alt="Python разработчик">
+            <h3>Python разработчик</h3>
+            <p>
+                Освойте Python, Django и Flask. Разрабатывайте мощные приложения и автоматизируйте задачи.
+            </p>
+        </a>
+        <a href="/" class="course">
+            <img src="{% static 'gasyrlab/images/course.png' %}" alt="Android разработчик">
+            <h3>Android разработчик</h3>
+            <p>
+                Научитесь создавать мобильные приложения для Android с помощью Java и Kotlin.
+            </p>
+        </a>
+    </div>
+    <a href="/" class="btn courses-btn">Список курсов</a>
+</section>
+
+
+{% endblock main %}
+

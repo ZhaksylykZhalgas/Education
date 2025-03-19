@@ -1,0 +1,319 @@
+/* Глобальные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+/* Секция Intro */
+.intro-section {
+    padding: 50px 20px; /* Отступы вокруг секции */
+}
+
+.intro-content {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    align-items: center; /* Выравниваем по вертикали */
+    gap: 30px; /* Расстояние между текстом и изображением */
+    margin-top: 70px;
+    flex-wrap: nowrap;
+}
+
+.intro-text {
+    max-width: 45%;; /* Ограничиваем ширину текста */
+    color: #000000;
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+.intro-text h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    margin-left: -100px;
+    width: 101%;
+}
+
+.intro-line {
+    border: none;
+    height: 2px;
+    background-color: #2f4561;
+    width: 500px;
+    margin: 20px 0 20px -100px;
+}
+
+.intro-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #000000;
+    width: 77%;
+    margin-left: -100px;
+}
+
+.intro-image img {
+    max-width: 300px; /* Уменьшаем размер изображения */
+    height: auto;
+    border-radius: 15px;
+}
+
+/* Контейнер поиска */
+.search-container {
+    text-align: left; /* Выравниваем содержимое по левому краю */
+    position: relative;
+    width: 60%; /* Устанавливаем ширину поиска */
+    margin: 20px 50px 20px 150px;
+}
+
+/* Поле поиска */
+.search-bar {
+    width: 30%; /* Используем всю ширину контейнера */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Закругляем края */
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+    /* Отступ для иконки */
+    padding: 12px 15px 12px 40px;
+    transition: all 0.3s ease;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    left: 360px;
+    width: 50px;
+}
+
+.search-bar:focus {
+    border-color: #5b88cd; /* Синий цвет при фокусе */
+    box-shadow: 0 4px 8px rgba(91, 136, 205, 0.2);
+}
+
+
+/* Сетка курсов */
+/* Сетка курсов */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid layout */
+    gap: 40px; /* Reduced gap for better spacing */
+    padding: 20px 100px;
+}
+
+/* Карточки курсов */
+.course-card {
+    background: linear-gradient(135deg, #ffffff, #f8fafe); /* Softer gradient */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 10px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    overflow: hidden; /* Ensures expanded content doesn't overflow */
+    display: flex;
+    flex-direction: column; /* Arrange content vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    height: 95%; /* Ensure all cards are of equal height */
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #f0f8ff, #e0f5ff);
+    z-index: 1; /* Ensures the hovered card is above others */
+}
+
+/* Заголовок карточки: фото и название */
+.course-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Фото курса */
+.course-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f4f8;
+    padding: 5px;
+    object-fit: cover; /* Ensure proper scaling */
+}
+
+/* Название курса */
+.course-header h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #007bff;
+}
+
+.course-card p {
+    font-family: Candara;
+}
+
+/* Статус завершения */
+.status.completed {
+    background-color: #4caf50; /* Green background */
+    color: white;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* Описание */
+.courses-grid .course-card {
+    position: relative; /* Относительное позиционирование для текущей карточки */
+    overflow: hidden; /* Обеспечиваем, что содержимое не выходит за границы */
+}
+
+.courses-grid .course-card:hover p {
+    -webkit-line-clamp: unset; /* Снимаем ограничение на строки */
+    display: block;
+    overflow: visible;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    z-index: 10; /* Увеличиваем приоритет текущей карточки */
+    position: relative; /* Убедимся, что только текущая карточка изменяется */
+}
+
+/* Общий контейнер для фильтра */
+.filter-container {
+    /*background-color: #f8f9fa; !* Светлый фон *!*/
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+}
+
+/* Форма фильтра */
+.filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap; /* Адаптация под маленькие экраны */
+    margin-left: 136px;
+}
+
+/* Элементы фильтра */
+.filter-item {
+    margin: 0;
+}
+
+.filter-select {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #333;
+    background-color: white;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.filter-select:focus {
+    border-color: #007BFF;
+    outline: none;
+
+}
+
+/* Кнопка "Применить" */
+.btn.filter-btn {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+
+}
+
+.btn.filter-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Кнопки */
+.course-buttons {
+    margin-top: auto; /* Push the buttons to the bottom */
+    padding-bottom: 10px; /* Add spacing from the bottom */
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.details-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.details-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+
+.status.completed {
+    background-color: #4caf50; /* Green background */
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .courses-grid {
+        padding: 10px 20px;
+        gap: 20px;
+    }
+}
+
+/*.enroll-btn {*/
+/*    background-color: #28a745;*/
+/*    color: white;*/
+/*}*/
+
+/*.enroll-btn:hover {*/
+/*    background-color: #218838;*/
+/*    transform: scale(1.05);*/
+/*}*/
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-image img {
+        margin-top: 20px;
+    }
+
+    .search-bar {
+        font-size: 14px;
+        width: 80%;
+    }
+}

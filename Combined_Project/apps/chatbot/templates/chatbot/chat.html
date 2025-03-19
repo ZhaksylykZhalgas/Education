@@ -1,0 +1,143 @@
+{% extends 'courses/base.html' %}
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh; /* Высота на весь экран */
+        width: 100%; /* Ширина на весь экран */
+        background: #fff;
+    }
+
+    .chat-header {
+        background: #2196F3;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    #chat {
+        flex-grow: 1; /* Занимает всё доступное пространство */
+        padding: 20px;
+        overflow-y: auto;
+        background: #f9f9f9;
+        display: flex;
+        flex-direction: column; /* Расположить сообщения вертикально */
+        gap: 10px; /* Отступы между сообщениями */
+    }
+
+    .chat-message {
+        max-width: 70%;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+
+    .message-user {
+        align-self: flex-end; /* Сообщение пользователя выравнивается вправо */
+        background: #BBDEFB;
+        color: #333;
+        text-align: left;
+    }
+
+    .message-bot {
+        align-self: flex-start; /* Сообщение бота выравнивается влево */
+        background: #E3F2FD;
+        color: #333;
+        text-align: left;
+    }
+
+    .chat-input {
+        display: flex;
+        padding: 10px;
+        gap: 10px;
+        background: #f1f1f1;
+        border-top: 1px solid #ddd;
+    }
+
+    #message {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1em;
+        outline: none;
+    }
+
+    button {
+        background: #2196F3;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background: #1E88E5;
+    }
+
+    /* Адаптивный дизайн */
+    @media (max-width: 480px) {
+        .chat-header {
+            font-size: 1.2em;
+        }
+
+        .chat-input {
+            flex-direction: column;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
+<script>
+    async function sendMessage() {
+        const message = document.getElementById("message").value;
+        if (!message.trim()) return; // Не отправлять пустые сообщения
+
+        const response = await fetch(".", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: `message=${encodeURIComponent(message)}`
+        });
+
+        const data = await response.json();
+
+        const chatBox = document.getElementById("chat");
+        chatBox.innerHTML += `<div class="chat-message message-user"><b>Вы:</b> ${message}</div>`;
+        chatBox.innerHTML += `<div class="chat-message message-bot"><b>Бот:</b> ${data.response}</div>`;
+
+        chatBox.scrollTop = chatBox.scrollHeight; // Прокрутка вниз
+        document.getElementById("message").value = "";
+    }
+</script>
+{% endblock style %}
+{% block main %}
+<div class="chat-container">
+    <div class="chat-header">Чат с ботом</div>
+    <div id="chat"></div>
+    <div class="chat-input">
+        <input type="text" id="message" placeholder="Введите сообщение" onkeypress="if(event.key === 'Enter') sendMessage()" />
+        <button onclick="sendMessage()">Отправить</button>
+    </div>
+</div>
+{% endblock main %}

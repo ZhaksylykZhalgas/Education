@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% block title %}О нас{% endblock %}
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static 'main/css/333333.css' %}">{% endblock %}
+{% block content %}
+<section class="about-us">
+    <div class="about-row">
+        <div class="about-content">
+            <h2>Кто такие Daryn</h2>
+            <p>
+                Наша команда состоит из опытных специалистов, каждый из которых вкладывает свои знания и умения в развитие нашей компании. Мы гордимся нашим разнообразием и коллективным духом, который способствует креативности и инновациям.
+            </p>
+            <p>
+                Мы создаем образовательные решения, которые помогают каждому расти и развиваться, независимо от уровня подготовки.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'main/img/about_1.png' %}" alt="Team">
+        </div>
+    </div>
+
+    <div class="about-row reverse">
+        <div class="about-image">
+            <img src="{% static 'main/img/about_2.png' %}" alt="Goal">
+        </div>
+        <div class="about-content">
+            <h2>Наша цель</h2>
+            <p>
+                Наша миссия - предоставить качественные образовательные ресурсы всем желающим. Мы верим, что знания должны быть доступны каждому, и работаем над созданием курсов, которые легко освоить и применять.
+            </p>
+            <p>
+                Мы стремимся сделать образование доступным и вдохновляющим для всех наших пользователей.
+            </p>
+        </div>
+    </div>
+
+    <div class="about-row">
+        <div class="about-content">
+            <h2>Бесплатные курсы для всех</h2>
+            <p>
+                Мы предоставляем бесплатные курсы, чтобы каждый мог получить востребованные навыки программирования. Наши материалы созданы для того, чтобы вы могли учиться в своем темпе, без ограничений и лишних затрат.
+            </p>
+            <p>
+                Присоединяйтесь к нашему сообществу и откройте для себя мир возможностей с нашими образовательными ресурсами.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'main/img/about_3.png' %}" alt="Free Courses">
+        </div>
+    </div>
+</section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const rows = document.querySelectorAll('.about-row');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 }); // Срабатывает, когда 30% блока видимы
+
+        rows.forEach(row => {
+            observer.observe(row);
+        });
+    });
+</script>
+
+{% endblock %}

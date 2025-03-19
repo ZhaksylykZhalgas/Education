@@ -1,0 +1,1108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #5b88cd, #cfdcea) fixed;
+}
+
+/* Заголовок с кнопками */
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e6f1ff;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.details-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin: 0 20px;
+    flex: 1; /* Занимает доступное пространство */
+    text-align: center;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Расстояние между элементами */
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rating-label {
+    margin-right: 5px;
+    color: #666;
+}
+
+.rating-value {
+    color: #007bff;
+    font-size: 18px;
+}
+
+
+.buy-btn {
+    text-decoration: none;
+    background: rgba(123, 168, 230, 1);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buy-btn:hover {
+    background: #287ef4;
+    transform: scale(1.05);
+}
+
+
+.buy-btn {
+    text-decoration: none;
+    background: rgba(123, 168, 230, 1);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buy-btn:hover {
+    background: #287ef4;
+    transform: scale(1.05);
+}
+
+
+/* Кнопка "Назад" */
+.back-btn,
+.buy-btn {
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover,
+.buy-btn:hover {
+    background: #9fc1f1;
+    transform: translateY(-3px); /* Поднятие кнопки */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn {
+    background: #6c757d; /* Серый для "Назад" */
+}
+
+.back-btn:hover {
+    background: #5a6268;
+}
+
+
+/* Кнопка "Купить" */
+.buy-btn {
+    text-decoration: none;
+    background: rgba(123, 168, 230, 1);
+    color: #040404;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-block:hover {
+    background: #9fc1f1;
+}
+
+.buy-btn:hover {
+    background: #287ef4;
+    transform: scale(1.05);
+}
+
+.meta-item:hover {
+    background: #9fc1f1;
+}
+
+/* Основной контейнер */
+.course-details {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    color: #333;
+    border-radius: 15px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Header */
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e6f1ff;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.details-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rating-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.rating-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Кнопка "Назад" */
+.back-btn,
+.buy-btn {
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover,
+.buy-btn:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn {
+    background: #6c757d;
+}
+
+.back-btn:hover {
+    background: #5a6268;
+}
+
+/* Сетка основного блока */
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 0 auto;
+}
+
+/* Левая сторона */
+.details-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.info-block {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-block h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.info-block h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.info-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Правая сторона */
+.details-right {
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+}
+
+.details-right img {
+    margin: 0 auto;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.info-block {
+    position: absolute;
+    width: 40%;
+    left: 190px;
+    top: 158px;
+    height: 300px;
+}
+
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: -140px;
+    width: 700px;
+}
+
+.meta-item {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meta-item h3 {
+    font-size: 18px;
+    color: #007bff;
+}
+
+.meta-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .details-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .details-left,
+    .details-right {
+        max-width: 100%;
+    }
+}
+
+
+/* Метаданные */
+.meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.meta-item {
+    background: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meta-item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.meta-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Секция статистики */
+.course-statistics {
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    text-align: center;
+    width: 80%;
+    height: 200px;
+    margin-left: 150px;
+}
+
+.stat-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для разделения */
+    flex: 1;
+    transition: all 0.3s ease; /* Для hover */
+}
+
+.stat-item:hover {
+    transform: translateY(-5px); /* Поднятие блока */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Усиление тени */
+    background: #9fc1f1; /* Лёгкий синий фон при наведении */
+}
+
+.stat-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.stat-item h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.stat-item p {
+    font-size: 18px;
+    color: #555;
+}
+
+.line {
+    width: 2px;
+    background: #000000; /* Синий цвет линии */
+    height: 100%; /* Высота линии равна высоте блока */
+    margin: 0 10px;
+}
+
+.bottom-line {
+    width: 100%;
+    height: 2px;
+    background: #000000; /* Цвет линии */
+    margin-top: 20px;
+}
+
+/* Секция преподавателей */
+.course-instructors {
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.course-instructors h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Секция преподавателей */
+.course-instructors {
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.course-instructors h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #090909;
+    margin-top: -30px;
+}
+
+.instructor-list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap; /* Адаптивность для мобильных устройств */
+}
+
+.instructor {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    max-width: 200px;
+    transition: all 0.3s ease; /* Плавные изменения */
+}
+
+/* Эффект hover */
+.instructor:hover {
+    transform: scale(1.05); /* Лёгкое увеличение */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Увеличенная тень */
+    background: #9fc1f1; /* Лёгкий синий фон при наведении */
+}
+
+.instructor img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Для эффекта масштабирования картинки */
+}
+
+.instructor img:hover {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+.instructor h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #007bff;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.instructor:hover h3 {
+    color: #0056b3; /* Более тёмный синий при наведении */
+}
+
+.instructor p {
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
+.instructor:hover p {
+    color: #333; /* Более тёмный текст при наведении */
+}
+
+.line-2 {
+    background-color: black;
+    border: none;
+    height: 2px;
+}
+
+/* Секция комментариев */
+.comments-section {
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f3f9, #ffffff);
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto 30px 190px; /* Центровка с отступом */
+}
+
+/* Заголовок секции */
+.comments-section h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 5px solid #3498db;
+}
+
+/* Форма добавления комментария */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 50px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 65%;
+    border: 2px solid red;
+
+}
+
+.comment-form textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccd1d9;
+    font-size: 15px;
+    resize: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: #f9fafb;
+    width: 75%;
+}
+
+.comment-form textarea:focus {
+    border-color: #3498db;
+    box-shadow: inset 0 2px 4px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.comment-form .submit-btn {
+    align-self: flex-start;
+    padding: 10px 25px;
+    background: linear-gradient(135deg, #3498db, #1abc9c);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Список комментариев */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Карточка комментария */
+.comment {
+    display: flex;
+    gap: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    word-wrap: break-word; /* Перенос слов */
+    overflow-wrap: break-word; /* Перенос длинного текста */
+    border: 2px solid #023eff;
+    /*width: 70%;*/
+    /*margin-left: 320px;*/
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-user {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.user-label {
+    font-size: 14px;
+    color: #2ecc71; /* Зеленый цвет для метки "Вы" */
+    margin-left: 5px;
+}
+
+.comment-date {
+    font-size: 13px;
+    color: #95a5a6;
+}
+
+.comment-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #34495e;
+    word-break: break-word; /* Перенос длинных слов */
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.delete-btn-1 {
+    background: #e74c3c;
+    color: #fff;
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    padding: 3px 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.delete-btn-1:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.edit-reply-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Сообщение, если комментариев нет */
+.no-comments {
+    text-align: center;
+    font-size: 15px;
+    color: #7f8c8d;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* Сообщение для незарегистрированных пользователей */
+.login-prompt {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin: 20px 0;
+}
+
+.login-link {
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #1abc9c;
+}
+
+/* Аватарка пользователя */
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.user-label {
+    background-color: transparent;
+    color: #6f7372;
+    padding: 1px 5px;
+    border-radius: 12px;
+    margin-left: -6px;
+}
+
+.edit-btn {
+    background: #f1c40f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.edit-btn:hover {
+    background: #d4ac0d;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.comment-actions {
+    display: inline;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.like-btn, .dislike-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #f0f0f0;
+    border: 2px solid #d9d9d9;
+    color: #333;
+    border-radius: 5px;
+    /*padding: 8px 12px;*/
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.like-btn.active, .dislike-btn.active {
+    background-color: #72acff; /* Цвет для активной кнопки */
+}
+
+.like-btn:hover {
+    background-color: #e0f7fa; /* Светло-голубой при наведении */
+    border-color: #00bcd4;
+    color: #00796b;
+}
+
+.dislike-btn:hover {
+    background-color: #ffebee; /* Светло-красный при наведении */
+    border-color: #f44336;
+    color: #b71c1c;
+}
+
+.like-btn:active, .dislike-btn:active {
+    transform: scale(0.95); /* Анимация нажатия */
+}
+
+.like-btn span, .dislike-btn span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.cancel-btn {
+    background: #bdc3c7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cancel-btn:hover {
+    background: #95a5a6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.save-btn {
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background 0.3s ease;
+}
+
+.save-btn:hover {
+    background: #27ae60;
+}
+
+.cancel-btn {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #c0392b;
+}
+
+.edit-textarea {
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.save-btn, .cancel-btn {
+    background-color: #2ecc71; /* Зеленая кнопка */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.cancel-btn {
+    background-color: #e74c3c; /* Красная кнопка */
+}
+
+.save-btn:hover {
+    background-color: #27ae60;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+.edit-btn {
+    background-color: #f1c40f; /* Желтая кнопка */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background-color: #d4ac0d;
+}
+
+.comment-saved {
+    animation: highlight 2s ease;
+    background-color: #d4edda; /* Светло-зеленый цвет фона */
+    border: 2px solid #28a745; /* Зеленая рамка */
+    border-radius: 8px;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin-left: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination-btn {
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.pagination-btn:hover {
+    background-color: #2980b9;
+}
+
+.current-page {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Стиль кнопки Ответить */
+.reply-btn {
+    background-color: #007bff; /* Синий цвет */
+    color: #ffffff; /* Белый текст */
+    border: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.reply-btn:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+}
+
+/* Стиль формы ответа */
+.reply-form {
+    display: none; /* Скрыта по умолчанию */
+    margin-top: 10px;
+    margin-left: 40px; /* Отступ для вложенности */
+}
+
+.reply-form textarea {
+    width: 40%;
+    max-width: 600px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: none;
+}
+
+.reply-form button {
+    margin-top: 5px;
+    background-color: #28a745; /* Зеленая кнопка отправки */
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reply-form button:hover {
+    background-color: #218838; /* Темнее при наведении */
+}
+
+.comment-1 {
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 5px;*/
+    /*padding: 15px;*/
+    margin-bottom: 10px;
+    /*background-color: #f9f9f9;*/
+    max-width: 500px;
+    margin-top: 23px;
+}
+
+.toggle-replies-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.toggle-replies-btn:hover {
+    background-color: #0056b3;
+}
+
+.replies-container {
+    margin-left: 20px;
+    margin-top: 10px;
+    border-left: 2px solid #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-left: 10px;
+    background-color: #f1f1f1;
+}
+
+.reply {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes highlight {
+    0% {
+        background-color: #d4edda;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .instructor-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .instructor {
+        max-width: 90%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .statistics {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

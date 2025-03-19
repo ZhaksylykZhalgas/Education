@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasyr lab</title>
+    <link rel="stylesheet" href="tests.css">
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2 id="question">Тест</h2>
+
+    <p>Выберите правильный ответ:</p>
+
+   <div id="quiz">
+        <input type="radio" name="answer" id="answerA" class="answer" value="A">
+        <label for="answerA">Ответ A</label>
+        <input type="radio" name="answer" id="answerB" class="answer" value="B">
+        <label for="answerB">Ответ B</label>
+        <input type="radio" name="answer" id="answerC" class="answer" value="C">
+        <label for="answerC">Ответ C</label>
+        <input type="radio" name="answer" id="answerD" class="answer" value="D">
+        <label for="answerD">Ответ D</label>
+        <input type="radio" name="answer" id="answerE" class="answer" value="E">
+        <label for="answerE">Ответ E</label>
+        <input type="radio" name="answer" id="answerF" class="answer" value="F">
+        <label for="answerF">Ответ F</label><br><br>
+        <button onclick="checkAnswers()">Проверить ответ</button>
+    </div>
+
+    <p id="result"></p>
+
+    <div id="navigation">
+        <button onclick="prevQuestion()">Предыдущий вопрос</button>
+        <button onclick="nextQuestion()">Следующий вопрос</button>
+    </div>
+    <button id="submitTestBtn" onclick="submitTest()" style="display: none;">Сдать тест</button>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+var questions = [
+    {
+        question: "Вопрос 1",
+        answers: ["Ответ A1", "Ответ B1", "Ответ C1", "Ответ D1", "Ответ E1", "Ответ F1"],
+        correctAnswer: 'B'
+    },
+    {
+        question: "Вопрос 2",
+        answers: ["Ответ A2", "Ответ B2", "Ответ C2", "Ответ D2", "Ответ E2", "Ответ F2"],
+        correctAnswer: 'A'
+    },
+    {
+        question: "Вопрос 3",
+        answers: ["Ответ A3", "Ответ B3", "Ответ C3", "Ответ D3", "Ответ E3", "Ответ F3"],
+        correctAnswer: 'C'
+    }
+];
+var currentQuestionIndex = 0;
+
+function displayQuestion() {
+    var currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').innerHTML = currentQuestion.question;
+
+    var quizContainer = document.getElementById('quiz');
+    quizContainer.innerHTML = ''; // Очищаем содержимое контейнера
+
+    for (var i = 0; i < currentQuestion.answers.length; i++) {
+        var answer = currentQuestion.answers[i];
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'answer';
+        input.id = 'answer' + (i + 1);
+        input.value = String.fromCharCode(65 + i); // Преобразуем индекс в букву A, B, C и т.д.
+
+        var label = document.createElement('label');
+        label.htmlFor = 'answer' + (i + 1);
+        label.textContent = answer;
+
+        quizContainer.appendChild(input);
+        quizContainer.appendChild(label);
+        quizContainer.appendChild(document.createElement('br'));
+    }
+
+    // Показываем кнопку "Сдать тест" только после последнего вопроса
+    if (currentQuestionIndex === questions.length - 1) {
+        document.getElementById('submitTestBtn').style.display = 'block';
+    } else {
+        document.getElementById('submitTestBtn').style.display = 'none';
+    }
+}
+
+function nextQuestion() {
+    saveSelectedAnswer(); // Сохраняем выбранный ответ перед переходом к следующему вопросу
+    currentQuestionIndex++;
+    if (currentQuestionIndex >= questions.length) {
+        currentQuestionIndex = 0; // Возвращаемся на первый вопрос после последнего
+    }
+    displayQuestion();
+}
+
+function prevQuestion() {
+    saveSelectedAnswer(); // Сохраняем выбранный ответ перед переходом к предыдущему вопросу
+    currentQuestionIndex--;
+    if (currentQuestionIndex < 0) {
+        currentQuestionIndex = questions.length - 1; // Возвращаемся на последний вопрос после первого
+    }
+    displayQuestion();
+}
+
+function submitTest() {
+    saveSelectedAnswer(); // Сохраняем последний выбранный ответ перед сдачей теста
+
+    // Вычисляем итоговый балл
+    var score = calculateScore();
+
+    // Перенаправляем пользователя на страницу с итоговыми баллами
+    window.location.href = 'results.html?score=' + score;
+}
+
+function calculateScore() {
+    var selectedAnswers = [];
+    var score = 0;
+    for (var i = 0; i < questions.length; i++) {
+        var radios = document.getElementsByName('answer');
+        for (var j = 0; j < radios.length; j++) {
+            if (radios[j].checked) {
+                selectedAnswers.push(radios[j].value);
+                if (radios[j].value === questions[i].correctAnswer) {
+                    score++;
+                }
+                break;
+            }
+        }
+    }
+    return score;
+}
+
+function saveSelectedAnswer() {
+    var radios = document.getElementsByName('answer');
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            var selectedAnswer = radios[i].value;
+            // Здесь вы можете отправить AJAX-запрос на сервер и сохранить выбранный ответ в базе данных
+            return; // Найден выбранный ответ, прерываем цикл
+        }
+    }
+}
+
+window.onload = displayQuestion;
+</script>
+
+</body>
+</html>
