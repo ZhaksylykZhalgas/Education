@@ -7,6 +7,22 @@ from django.utils.text import slugify
 from django.contrib.auth.models import AbstractUser
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
+
+def user_avatar_path(instance, filename):
+    return f'avatars/user_{instance.user.id}/{filename}'
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to=user_avatar_path, null=True, blank=True, default='main/img/1.png')
+
+    def __str__(self):
+        return self.user.username
+
+class AvatarHistory(models.Model):
+    profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='avatar_history')
+    avatar = models.ImageField(upload_to='avatars/history/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
 
 class Feedback(models.Model):

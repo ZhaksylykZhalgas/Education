@@ -45,6 +45,29 @@ def contact(request):
 def success_view(request):
     return render(request, 'main/success.html')
 
+@login_required()
+def my_profile(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    # Обработка загрузки новой аватарки
+    if request.method == 'POST' and request.FILES.get('avatar'):
+        new_avatar = request.FILES['avatar']
+
+        # Сохраняем текущую аватарку в историю (если не дефолт)
+        if profile.avatar and profile.avatar.name != 'avatars/default.png':
+            AvatarHistory.objects.create(profile=profile, avatar=profile.avatar)
+
+        # Обновляем аватарку
+        profile.avatar = new_avatar
+        profile.save()
+
+        return redirect('my_profile')
+
+    return render(request, 'main/my_profile.html', {
+        'user': request.user,
+        'profile': profile,
+    })
+
 
 def about(request):
     return render(request, 'main/about_us.html')

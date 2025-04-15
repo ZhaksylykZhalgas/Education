@@ -2,6 +2,25 @@
 {% block title %}Daryn{% endblock %}
 {% load static %}
 {% block css %}
+    <style>
+    .dark-mode main {
+        background-color: black;
+    }
+    .dark-mode .container {
+        color: white;
+    }
+    .dark-mode .bottom-section{
+        background: black;
+        color: white;
+    }
+    .dark-mode .line-1{
+        background-color: black;
+        background: black;
+    }
+    .dark-mode .courses{
+        background-color: black;
+    }
+    </style>
     <link rel="stylesheet" href="{% static 'main/css/12345.css' %}">{% endblock %}
 
 {% block content %}

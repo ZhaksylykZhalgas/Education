@@ -7,6 +7,54 @@
     <title>{% block title %}Django Site{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/basic.css' %}">
     {% block css %}{% endblock %}
+    <style>
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212; /* Тёмный фон для body */
+            color: #e0e0e0; /* Светлый цвет текста */
+        }
+
+        .dark-mode header {
+            background-color: #1e1e1e; /* Более тёмный фон для шапки */
+            color: #faf8f8;
+        }
+
+        .dark-mode header nav a {
+            color: #000000; /* Светлый цвет ссылок в навигации */
+        }
+
+        .dark-mode header nav a.active {
+            color: #bb86fc; /* Выделяем активную ссылку (фиолетовыми оттенками) */
+        }
+
+        .dark-mode .site-footer {
+            background: linear-gradient(to bottom, #1e1e1e, #121212);
+            color: #ccc;
+        }
+
+        .dark-mode .site-footer a {
+            color: #bb86fc;
+        }
+
+        .dark-mode .btn {
+            background-color: #333;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .btn:hover {
+            background-color: #444;
+        }
+
+        /* При необходимости можно добавить и другие переопределения для элементов: */
+        .dark-mode .email-notification {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+        .dark-mode h3 {
+            color: wheat;
+        }
+
+    </style>
 </head>
 <body>
 <header>
@@ -54,6 +102,7 @@
             </div>
         {% endif %}
     </nav>
+    <button id="theme-toggle" class="btn" style="margin-left: 250px">Dark Mode</button>
 </header>
 
 
@@ -103,6 +152,32 @@
         const alerts = document.querySelectorAll('.alert');
         alerts.forEach(alert => alert.remove());
     }, 2000); // 5000 миллисекунд = 5 секунд
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = 'Light Mode';
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeToggle.textContent = 'Dark Mode';
+        }
+        localStorage.setItem('theme', theme);
+    }
+
+    // Установка сохранённой темы при загрузке страницы
+    setTheme(savedTheme);
+
+    // Обработчик переключения при клике
+    themeToggle.addEventListener('click', () => {
+        if (document.body.classList.contains('dark-mode')) {
+            setTheme('light');
+        } else {
+            setTheme('dark');
+        }
+    });
+
 </script>
 
 </body>
